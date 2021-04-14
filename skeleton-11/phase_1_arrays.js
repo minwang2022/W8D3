@@ -1,21 +1,53 @@
-function NumArr(name){ 
-    this.name = name;
-};
-
-    NumArr.prototype.uniq = function() {
+Array.prototype.uniq = function() {
 
     const newArr = [];
 
-    for ( let i = 0; i < arr.length; i++ ) {
-        if (newArr.includes(arr[i])) {
+    for ( let i = 0; i < this.length; i++ ) {
+        if (newArr.includes(this[i])) {
             continue; 
         };
-        newArr.push(arr[i]);
+        newArr.push(this[i]);
     };
     return newArr;
+};
+
+
+// console.log([1,2,2,3,3,3].uniq());
+
+Array.prototype.twoSum = function() {
+
+    const pairs = [];
+
+    for (let i = 0; i < this.length; i++) {
+        for (let j = i + 1; j < this.length; j++) {
+            if (this[i] + this[j] === 0) {
+                pairs.push(i);
+                pairs.push(j);
+            };
+        };
     };
+
+    return pairs;
+};
+
+// console.log([1, -1, 5, 6, 9, -9].twoSum());
+
+Array.prototype.transpose = function() {
+
+    const transposed = [];
     
-    const arr = new NumArr()
+    for (let i = 0; i < this.length; i++) {
+        // console.log(this[i]);
+        const subArr = [];
 
+            for (let j = 0; j < this[0].length; j++) {
+                subArr.push(this[j][i])
+            };
+        
+        transposed.push(subArr);
+    };
 
-console.log([1,2,2,3,3,3].uniq());
+    return transposed;
+};
+
+console.log([[1, 2, 3], [5, 6, 7]].transpose());
