@@ -40,7 +40,7 @@ Array.prototype.transpose = function() {
         // console.log(this[i]);
         const subArr = [];
 
-            for (let j = 0; j < this[0].length; j++) {
+            for (let j = 0; j < this[i].length; j++) {
                 subArr.push(this[j][i])
             };
         
@@ -50,4 +50,4 @@ Array.prototype.transpose = function() {
     return transposed;
 };
 
-console.log([[1, 2, 3], [5, 6, 7]].transpose());
+// console.log([[1, 2], [5, 6]].transpose());
